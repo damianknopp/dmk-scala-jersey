@@ -1,0 +1,15 @@
+dmk-scala-jersey
+==============================
+
+For fun, embedded Maven Jetty, Jersey webservices, using Jackson Json lib, with Scala
+
+
+To build:
+mvn clean install
+
+To run:
+mvn jetty:stop jetty:start
+
+To verify:
+Visit, http://localhost:8080/sysevents
+You should see a short list of made up data
