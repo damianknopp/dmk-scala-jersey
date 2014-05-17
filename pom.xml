@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>dmk</groupId>
-	<artifactId>scala-jersey</artifactId>
+	<artifactId>dmk-scala-jersey</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
-			<version>2.11.0-M8</version>
+			<version>2.10.3</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
