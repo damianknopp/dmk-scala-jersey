@@ -8,35 +8,29 @@ import javax.ws.rs.Path
 import javax.ws.rs.Produces
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.POST
+import javax.ws.rs.PathParam
+import scala.xml.Elem
 
 @Path("/nc/login")
 class LoginRecordingResource{
   val logger: Logger = LoggerFactory.getLogger(classOf[LoginRecordingResource])
 
-  @Path("/test")
+  @Path("/user/{name}")
   @GET
   @Produces(Array(MediaType.APPLICATION_XML))
-  def testMesg(): String = {
-		  return LoginRecordingResource.tmp.toString()
+  def remindUserToLogin(@PathParam("name") name: String): String = {
+	return LoginRecordingResource.generateLoginReminder(name).toString()
   }
   
-  @Path("/test")
-  @POST
-  @Produces(Array(MediaType.APPLICATION_XML))
-  def testMesgOnPost(): String = {
-		  return LoginRecordingResource.tmp.toString()
-  }
-
 }
 
 object LoginRecordingResource{
-  val tmp = <Response>
-	<Say voice="alice">Hello Damian.  This is Alice speaking.
+    def generateLoginReminder(name: String): Elem = {
+	  val msg = <Response>
+	<Say voice="alice">Hello {name}. This is a courtesy call from Next Century reminding you to check in by eleven O clock.
 	</Say>
-	<Pause length="1" />
-	<Say voice="alice">Let us know if I can help you in any way during your
-		development.
-	</Say>
-</Response>
-
+	<Say voice="alice">Thank you, good bye.</Say>
+	</Response>
+	  return msg
+  	}
 }
