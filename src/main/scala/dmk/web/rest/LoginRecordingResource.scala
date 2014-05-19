@@ -22,6 +22,12 @@ class LoginRecordingResource{
 	return LoginRecordingResource.generateLoginReminder(name).toString()
   }
   
+  @Path("/user/{name}")
+  @POST
+  @Produces(Array(MediaType.APPLICATION_XML))
+  def remindUserToLoginByPost(@PathParam("name") name: String): String = {
+	return LoginRecordingResource.generateLoginReminder(name).toString()
+  }
 }
 
 object LoginRecordingResource{
